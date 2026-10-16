@@ -66,7 +66,6 @@ Do the following, in simple language:
 4. List what the data cannot show that the manager should consider.
 End by saying the final decision belongs to the manager.
 """
-        try:
             
 try:
     client = genai.Client(api_key=api_key)
