@@ -67,16 +67,37 @@ Do the following, in simple language:
 End by saying the final decision belongs to the manager.
 """
         try:
-            client = genai.Client(api_key=api_key)
-            response = client.models.generate_content(
-                model="gemini-3.8-flash", contents=prompt
-            )
-            st.session_state["summary"] = response.text
-        except Exception as e:
-            st.error(f"Something went wrong: {e}")
+            
+try:
+    client = genai.Client(api_key=api_key)
+
+    response = client.models.generate_content(
+        model="gemini-3.8-flash",
+        contents=prompt,
+    )
+
+    if response.text:
+        st.session_state["summary"] = response.text
+        st.session_state.pop("summary_error", None)
+    else:
+        st.session_state["summary_error"] = (
+            "The AI returned an empty response. Please try again."
+        )
+
+except Exception as e:
+    st.session_state["summary_error"] = (
+        "The AI service is temporarily unavailable. "
+        "Please wait a minute and try again."
+    )
+    st.session_state.pop("summary", None)
+    print(f"Gemini API error: {e}")
+
+if "summary_error" in st.session_state:
+    st.warning(st.session_state["summary_error"])
 
 if "summary" in st.session_state:
     st.markdown(st.session_state["summary"])
+
 
 # ---- Human decision
 st.subheader("4. Manager decision (human judgment)")
