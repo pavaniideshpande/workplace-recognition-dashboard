@@ -153,7 +153,8 @@ End by saying the final decision belongs to the manager.
             
 try:
     client = genai.Client(api_key=api_key)
-prompt = f"""
+
+    prompt = f"""
 You are an organisational behaviour analyst helping assess
 fairness in workplace recognition.
 
@@ -173,7 +174,6 @@ Write a concise, professional report with these sections:
 
 Use only the data provided. Do not invent employee details,
 assume motivations, or make definitive claims about bias.
-Use a respectful, evidence-based tone.
 """
     response = client.models.generate_content(
         model="gemini-3.8-flash",
