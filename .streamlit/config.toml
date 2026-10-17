@@ -1,0 +1,23 @@
+.streamlit/config.toml
+
+[theme]
+base = "light"
+primaryColor = "#7957D5"
+backgroundColor = "#FCFAFF"
+secondaryBackgroundColor = "#F0EBFF"
+textColor = "#24204A"
+font = "sans serif"
+baseRadius = "large"
+borderColor = "#E3D8FF"
+chartCategoricalColors = [
+    "#8B70E8",
+    "#F58EAD",
+    "#49BFB0",
+    "#FFBD59",
+    "#B69AF7",
+    "#73B9F5"
+]
+
+[theme.sidebar]
+backgroundColor = "#F1EDFF"
+secondaryBackgroundColor = "#FFFFFF"
