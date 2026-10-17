@@ -45,8 +45,8 @@ data = st.data_editor(sample, num_rows="dynamic", use_container_width=True)
 st.markdown("""
 <style>
 [data-testid="stMetric"] {
-    background-color: #F1EAFF !important;
-    border: 1px solid #DCCBFF !important;
+    background-color: rgba(139, 112, 232, 0.14) !important;
+    border: 1px solid rgba(139, 112, 232, 0.55) !important;
     border-radius: 16px !important;
     padding: 18px !important;
 }
