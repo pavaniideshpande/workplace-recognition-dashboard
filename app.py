@@ -42,21 +42,6 @@ sample = pd.DataFrame(
 st.subheader("1. Contribution data")
 data = st.data_editor(sample, num_rows="dynamic", use_container_width=True)
 
-
-st.markdown("""
-<style>
-[data-testid="stMetric"] {
-    background-color: #F1EAFF !important;
-    border: 1px solid #DCCBFF !important;
-    border-radius: 16px !important;
-    padding: 18px !important;
-}
-
-    background: #E5F8F1;
-    border: 1px solid #BCEBDD;
-    padding: 18px;
-    border-radius: 16px;
-}
 st.markdown("""
 <style>
 [data-testid="stMetric"] {
@@ -66,7 +51,6 @@ st.markdown("""
     padding: 18px !important;
 }
 </style>
-""", unsafe_allow_html=True)
 """, unsafe_allow_html=True)
 
 st.markdown("### ✨ Recognition at a glance")
