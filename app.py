@@ -51,50 +51,22 @@ st.markdown("""
     border-radius: 16px !important;
     padding: 18px !important;
 }
-</style>
-""", unsafe_allow_html=True)
 
-<style>
-div[data-testid="stHorizontalBlock"]:has(
-    div[data-testid="stMetric"]
-) > div[data-testid="column"]:nth-child(1)
-div[data-testid="stMetric"] {
-    background: #F1EAFF;
-    border: 1px solid #DCCBFF;
-    padding: 18px;
-    border-radius: 16px;
-}
-
-div[data-testid="stHorizontalBlock"]:has(
-    div[data-testid="stMetric"]
-) > div[data-testid="column"]:nth-child(2)
-div[data-testid="stMetric"] {
     background: #E5F8F1;
     border: 1px solid #BCEBDD;
     padding: 18px;
     border-radius: 16px;
 }
-
-div[data-testid="stHorizontalBlock"]:has(
-    div[data-testid="stMetric"]
-) > div[data-testid="column"]:nth-child(3)
-div[data-testid="stMetric"] {
-    background: #FFF0F4;
-    border: 1px solid #FFD2DF;
-    padding: 18px;
-    border-radius: 16px;
-}
-
-div[data-testid="stHorizontalBlock"]:has(
-    div[data-testid="stMetric"]
-) > div[data-testid="column"]:nth-child(4)
-div[data-testid="stMetric"] {
-    background: #E9F4FF;
-    border: 1px solid #C8E2FF;
-    padding: 18px;
-    border-radius: 16px;
+st.markdown("""
+<style>
+[data-testid="stMetric"] {
+    background-color: #F1EAFF !important;
+    border: 1px solid #DCCBFF !important;
+    border-radius: 16px !important;
+    padding: 18px !important;
 }
 </style>
+""", unsafe_allow_html=True)
 """, unsafe_allow_html=True)
 
 st.markdown("### ✨ Recognition at a glance")
