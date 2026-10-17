@@ -82,9 +82,6 @@ recognition_coverage = (
     else 0
 )
 
-
-st.markdown("### ✨ Recognition at a glance")
-
 c1, c2, c3 = st.columns(3)
 
 with c1:
