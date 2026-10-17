@@ -73,9 +73,13 @@ total_tasks = int(data["Tasks completed"].sum())
 total_nominations = int(data["Peer nominations"].sum())
 recognized_employees = int(
     (data["Recognitions last 6 months"] > 0).sum()
+    recognition_coverage = (
+    recognized_employees / total_employees * 100
+    if total_employees > 0
+    else 0
 )
 
-c1, c2, c3, c4 = st.columns(4)
+c1, c2, c3, c4, c5 = st.columns(5)
 
 with c1:
     st.metric("👥 Employees", total_employees, border=True)
@@ -88,7 +92,13 @@ with c3:
 
 with c4:
     st.metric("🏆 Employees recognized", recognized_employees, border=True)
-
+with c5:
+    st.metric(
+        "📈 Recognition coverage",
+        f"{recognition_coverage:.0f}%",
+        border=True,
+        help="Percentage of employees who received at least one recognition in the last six months."
+    )
 
 
 st.markdown("## 📊 Recognition & Contribution Patterns")
