@@ -53,7 +53,15 @@ st.caption(
     "Review employee activity and update the sample data "
     "to explore recognition patterns."
 )
-data = st.data_editor(sample, num_rows="dynamic", use_container_width=True)
+st.dataframe(sample, use_container_width=True)
+csv_data = sample.to_csv(index=False).encode("utf-8")
+
+st.download_button(
+    label="📥 Download Employee Data (CSV)",
+    data=csv_data,
+    file_name="employee_recognition_data.csv",
+    mime="text/csv",
+)
 
 st.markdown("""
 <style>
