@@ -82,7 +82,10 @@ recognition_coverage = (
     else 0
 )
 
-c1, c2, c3, c4, c5 = st.columns(5)
+
+st.markdown("### ✨ Recognition at a glance")
+
+c1, c2, c3 = st.columns(3)
 
 with c1:
     st.metric("👥 Employees", total_employees, border=True)
@@ -93,8 +96,11 @@ with c2:
 with c3:
     st.metric("🌟 Peer nominations", total_nominations, border=True)
 
+c4, c5 = st.columns(2)
+
 with c4:
     st.metric("🏆 Employees recognized", recognized_employees, border=True)
+
 with c5:
     st.metric(
         "📈 Recognition coverage",
@@ -102,6 +108,7 @@ with c5:
         border=True,
         help="Percentage of employees who received at least one recognition in the last six months."
     )
+
 
 
 st.markdown("## 📊 Recognition & Contribution Patterns")
