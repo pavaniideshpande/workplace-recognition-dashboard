@@ -136,6 +136,24 @@ st.caption(
     "High contribution with low recognition may be worth reviewing "
     "before drawing conclusions about fairness."
 )
+st.markdown("### 🔎 Contribution vs. Recognition")
+
+st.caption(
+    "Explore whether employees with more completed tasks "
+    "also tend to receive more recognition."
+)
+
+st.scatter_chart(
+    data,
+    x="Tasks completed",
+    y="Recognitions last 6 months",
+    use_container_width=True,
+)
+
+st.caption(
+    "💡 Employees with high contributions but lower recognition "
+    "may warrant further review. This pattern alone does not prove bias."
+)
 
 # ---- AI step
 st.subheader("3. AI summary for the manager")
