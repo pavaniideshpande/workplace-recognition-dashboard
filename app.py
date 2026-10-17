@@ -42,6 +42,50 @@ sample = pd.DataFrame(
 st.subheader("1. Contribution data")
 data = st.data_editor(sample, num_rows="dynamic", use_container_width=True)
 
+st.markdown("""
+<style>
+div[data-testid="stHorizontalBlock"]:has(
+    div[data-testid="stMetric"]
+) > div[data-testid="column"]:nth-child(1)
+div[data-testid="stMetric"] {
+    background: #F1EAFF;
+    border: 1px solid #DCCBFF;
+    padding: 18px;
+    border-radius: 16px;
+}
+
+div[data-testid="stHorizontalBlock"]:has(
+    div[data-testid="stMetric"]
+) > div[data-testid="column"]:nth-child(2)
+div[data-testid="stMetric"] {
+    background: #E5F8F1;
+    border: 1px solid #BCEBDD;
+    padding: 18px;
+    border-radius: 16px;
+}
+
+div[data-testid="stHorizontalBlock"]:has(
+    div[data-testid="stMetric"]
+) > div[data-testid="column"]:nth-child(3)
+div[data-testid="stMetric"] {
+    background: #FFF0F4;
+    border: 1px solid #FFD2DF;
+    padding: 18px;
+    border-radius: 16px;
+}
+
+div[data-testid="stHorizontalBlock"]:has(
+    div[data-testid="stMetric"]
+) > div[data-testid="column"]:nth-child(4)
+div[data-testid="stMetric"] {
+    background: #E9F4FF;
+    border: 1px solid #C8E2FF;
+    padding: 18px;
+    border-radius: 16px;
+}
+</style>
+""", unsafe_allow_html=True)
+
 st.markdown("### ✨ Recognition at a glance")
 
 total_employees = len(data)
