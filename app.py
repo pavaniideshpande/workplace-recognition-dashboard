@@ -3,7 +3,16 @@ import streamlit as st
 from google import genai
 
 st.set_page_config(page_title="AI-Supported Fairness in Workplace Recognition", layout="wide")
-st.title("AI-Supported Fairness in Workplace Recognition")
+st.markdown("""
+# ✨ People & Recognition Analytics
+
+Understand employee contributions. Explore recognition patterns.
+Build a fairer workplace.
+""")
+
+st.caption(
+    "AI-Supported Fairness in Workplace Recognition"
+)
 st.caption("Prototype with sample data. AI suggests, the manager decides.")
 
 # ---- API key (paste in sidebar, or set GEMINI_API_KEY in Streamlit secrets when deployed)
