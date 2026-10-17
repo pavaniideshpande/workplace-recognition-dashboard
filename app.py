@@ -42,8 +42,19 @@ sample = pd.DataFrame(
 st.subheader("1. Contribution data")
 data = st.data_editor(sample, num_rows="dynamic", use_container_width=True)
 
+
 st.subheader("2. Recognition spread")
-st.bar_chart(data.set_index("Employee")[["Tasks completed", "Recognitions last 6 months"]])
+
+chart_data = data.set_index("Employee")[
+    ["Tasks completed", "Recognitions last 6 months"]
+]
+
+st.bar_chart(
+    chart_data,
+    color=["#8B70E8", "#49BFB0"],
+    use_container_width=True,
+)
+
 
 # ---- AI step
 st.subheader("3. AI summary for the manager")
