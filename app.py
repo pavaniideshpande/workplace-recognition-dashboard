@@ -48,7 +48,11 @@ sample = pd.DataFrame(
     }
 )
 
-st.subheader("1. Contribution data")
+st.markdown("## 📋 Employee Contribution Overview")
+st.caption(
+    "Review employee activity and update the sample data "
+    "to explore recognition patterns."
+)
 data = st.data_editor(sample, num_rows="dynamic", use_container_width=True)
 
 st.markdown("""
@@ -87,7 +91,11 @@ with c4:
 
 
 
-st.subheader("2. Recognition spread")
+st.markdown("## 📊 Recognition & Contribution Patterns")
+st.caption(
+    "Compare completed tasks with recognition received "
+    "over the last six months."
+)
 
 chart_data = data.set_index("Employee")[
     ["Tasks completed", "Recognitions last 6 months"]
