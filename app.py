@@ -42,6 +42,30 @@ sample = pd.DataFrame(
 st.subheader("1. Contribution data")
 data = st.data_editor(sample, num_rows="dynamic", use_container_width=True)
 
+st.markdown("### ✨ Recognition at a glance")
+
+total_employees = len(data)
+total_tasks = int(data["Tasks completed"].sum())
+total_nominations = int(data["Peer nominations"].sum())
+recognized_employees = int(
+    (data["Recognitions last 6 months"] > 0).sum()
+)
+
+c1, c2, c3, c4 = st.columns(4)
+
+with c1:
+    st.metric("👥 Employees", total_employees, border=True)
+
+with c2:
+    st.metric("✅ Tasks completed", total_tasks, border=True)
+
+with c3:
+    st.metric("🌟 Peer nominations", total_nominations, border=True)
+
+with c4:
+    st.metric("🏆 Employees recognized", recognized_employees, border=True)
+
+
 
 st.subheader("2. Recognition spread")
 
