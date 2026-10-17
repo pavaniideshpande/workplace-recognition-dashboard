@@ -106,7 +106,11 @@ st.bar_chart(
     color=["#8B70E8", "#49BFB0"],
     use_container_width=True,
 )
-
+st.caption(
+    "💡 Tip: Compare completed tasks with recognition received. "
+    "High contribution with low recognition may be worth reviewing "
+    "before drawing conclusions about fairness."
+)
 
 # ---- AI step
 st.subheader("3. AI summary for the manager")
