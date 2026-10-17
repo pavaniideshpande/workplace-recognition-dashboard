@@ -153,7 +153,28 @@ End by saying the final decision belongs to the manager.
             
 try:
     client = genai.Client(api_key=api_key)
+prompt = f"""
+You are an organisational behaviour analyst helping assess
+fairness in workplace recognition.
 
+Analyse the following employee contribution data:
+
+{data.to_string(index=False)}
+
+Write a concise, professional report with these sections:
+
+1. Overall observations: Summarise contribution and recognition patterns.
+2. Potential gaps: Identify employees or patterns that may deserve
+   a closer review, comparing completed tasks and recognitions.
+3. Fairness considerations: Explain why differences alone do not
+   prove bias or unfair treatment.
+4. Recommendations: Suggest practical ways to make recognition
+   more transparent, consistent, and fair.
+
+Use only the data provided. Do not invent employee details,
+assume motivations, or make definitive claims about bias.
+Use a respectful, evidence-based tone.
+"""
     response = client.models.generate_content(
         model="gemini-3.8-flash",
         contents=prompt,
