@@ -176,20 +176,22 @@ sample = pd.DataFrame(
     }
 )
 
-st.markdown("## 📋 Employee Contribution Overview")
-st.caption(
-    "Review employee activity and update the sample data "
-    "to explore recognition patterns."
-)
-st.dataframe(sample, use_container_width=True)
-csv_data = sample.to_csv(index=False).encode("utf-8")
+with tab5:
+    st.markdown("## 📋 Employee Contribution Overview")
+    st.caption(
+        "Review employee activity and update the sample data "
+        "to explore recognition patterns."
+    )
+    st.dataframe(sample, use_container_width=True)
 
-st.download_button(
-    label="📥 Download Employee Data (CSV)",
-    data=csv_data,
-    file_name="employee_recognition_data.csv",
-    mime="text/csv",
-)
+    csv_data = sample.to_csv(index=False).encode("utf-8")
+
+    st.download_button(
+        label="📥 Download Employee Data (CSV)",
+        data=csv_data,
+        file_name="employee_recognition_data.csv",
+        mime="text/csv",
+    )
 
 st.markdown("""
 <style>
