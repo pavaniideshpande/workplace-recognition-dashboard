@@ -85,6 +85,36 @@ st.markdown("""
     .hero-wrap, .hero-wrap::before { animation: none; }
     .hero-cta { transition: none; }
 }
+
+/* Neon glow for metric cards */
+div[data-testid="stMetric"] {
+    background: linear-gradient(
+        135deg,
+        rgba(169, 112, 255, 0.10),
+        rgba(23, 17, 35, 0.72)
+    );
+    border: 1px solid rgba(169, 112, 255, 0.22);
+    border-radius: 16px;
+    padding: 18px 20px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease,
+                transform 0.25s ease;
+}
+
+div[data-testid="stMetric"]:hover {
+    border-color: rgba(169, 112, 255, 0.7);
+    box-shadow: 0 0 22px rgba(169, 112, 255, 0.16);
+    transform: translateY(-3px);
+}
+
+div[data-testid="stMetric"] label {
+    color: #C8BEDA !important;
+}
+
+div[data-testid="stMetric"] [data-testid="stMetricValue"] {
+    color: #D8BDFF !important;
+    font-weight: 750;
+}
+
 </style>
 
 <div class="hero-wrap">
