@@ -101,7 +101,6 @@ st.markdown("""
 
 st.markdown('<div id="dashboard"></div>', unsafe_allow_html=True)
 
-)
 st.caption("Prototype with sample data. AI suggests, the manager decides.")
 
 # ---- API key (paste in sidebar, or set GEMINI_API_KEY in Streamlit secrets when deployed)
