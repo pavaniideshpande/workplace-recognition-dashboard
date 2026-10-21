@@ -3,15 +3,104 @@ import streamlit as st
 from google import genai
 
 st.set_page_config(page_title="AI-Supported Fairness in Workplace Recognition", layout="wide")
+
 st.markdown("""
-# ✨ People & Recognition Analytics
+<style>
+.hero-wrap {
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 2.2rem;
+    margin: 0.5rem 0 2rem 0;
+    border: 1px solid rgba(169, 112, 255, 0.32);
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 85% 15%, rgba(169,112,255,.25), transparent 32%),
+        radial-gradient(circle at 10% 100%, rgba(97,54,170,.25), transparent 38%),
+        linear-gradient(135deg, #171123 0%, #0B0812 75%);
+    box-shadow: 0 12px 42px rgba(97,54,170,.16);
+    animation: heroFadeIn .9s ease-out both;
+}
+.hero-wrap::before {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -50px;
+    top: -90px;
+    border-radius: 50%;
+    background: rgba(169,112,255,.2);
+    filter: blur(40px);
+    animation: heroGlow 7s ease-in-out infinite alternate;
+}
+.hero-eyebrow {
+    position: relative;
+    color: #C9A9FF;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    font-size: .76rem;
+    font-weight: 700;
+}
+.hero-title {
+    position: relative;
+    color: #F5F0FF;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    font-weight: 800;
+    margin: .8rem 0;
+}
+.hero-copy {
+    position: relative;
+    max-width: 620px;
+    color: #C8BEDA;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+.hero-cta {
+    position: relative;
+    display: inline-block;
+    margin-top: 1.1rem;
+    padding: .75rem 1.05rem;
+    border-radius: 12px;
+    border: 1px solid rgba(200,170,255,.45);
+    background: linear-gradient(135deg, #A970FF, #7341CF);
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    font-weight: 700;
+    box-shadow: 0 0 24px rgba(169,112,255,.22);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 32px rgba(169,112,255,.4);
+}
+@keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroGlow {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(-25px, 20px) scale(1.15); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero-wrap, .hero-wrap::before { animation: none; }
+    .hero-cta { transition: none; }
+}
+</style>
 
-Understand employee contributions. Explore recognition patterns.
-Build a fairer workplace.
-""")
+<div class="hero-wrap">
+    <div class="hero-eyebrow">AI-SUPPORTED FAIRNESS · PEOPLE ANALYTICS</div>
+    <div class="hero-title">Recognition that sees<br>every contribution.</div>
+    <div class="hero-copy">
+        Explore employee contributions, compare recognition patterns,
+        and use AI-supported insights to ask better questions about
+        workplace fairness.
+    </div>
+    <a class="hero-cta" href="#dashboard">Explore the dashboard ↓</a>
+</div>
+""", unsafe_allow_html=True)
 
-st.caption(
-    "AI-Supported Fairness in Workplace Recognition"
+st.markdown('<div id="dashboard"></div>', unsafe_allow_html=True)
+
 )
 st.caption("Prototype with sample data. AI suggests, the manager decides.")
 
