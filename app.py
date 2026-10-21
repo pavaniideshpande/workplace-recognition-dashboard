@@ -327,44 +327,41 @@ with tab1:
 
 
 
-st.markdown("## 📊 Recognition & Contribution Patterns")
-st.caption(
-    "Compare completed tasks with recognition received "
-    "over the last six months."
-)
 
-chart_data = data.set_index("Employee")[
-    ["Tasks completed", "Recognitions last 6 months"]
-]
+with tab3:
+    st.markdown("## 📊 Recognition Insights")
+    st.caption(
+        "Compare completed tasks and recognition received "
+        "over the last six months."
+    )
 
-st.bar_chart(
-    chart_data,
-    color=["#8B70E8", "#49BFB0"],
-    use_container_width=True,
-)
-st.caption(
-    "💡 Tip: Compare completed tasks with recognition received. "
-    "High contribution with low recognition may be worth reviewing "
-    "before drawing conclusions about fairness."
-)
-st.markdown("### 🔎 Contribution vs. Recognition")
+    chart_data = data.set_index("Employee")[
+        ["Tasks completed", "Recognitions last 6 months"]
+    ]
 
-st.caption(
-    "Explore whether employees with more completed tasks "
-    "also tend to receive more recognition."
-)
+    st.markdown("### Contribution and recognition by employee")
 
-st.scatter_chart(
-    data,
-    x="Tasks completed",
-    y="Recognitions last 6 months",
-    use_container_width=True,
-)
+    st.bar_chart(
+        chart_data,
+        color=["#8B70E8", "#49BFB0"],
+        use_container_width=True,
+    )
 
-st.caption(
-    "💡 Employees with high contributions but lower recognition "
-    "may warrant further review. This pattern alone does not prove bias."
-)
+    st.markdown("### 🔎 Contribution vs. Recognition")
+
+    st.scatter_chart(
+        data,
+        x="Tasks completed",
+        y="Recognitions last 6 months",
+        use_container_width=True,
+    )
+
+    st.caption(
+        "Employees with similar contributions but different "
+        "recognition levels may warrant further review. Differences "
+        "alone do not establish bias or explain their causes."
+    )
+
 
 # ---- AI step
 st.subheader("3. AI summary for the manager")
