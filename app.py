@@ -204,6 +204,22 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+data = sample.copy()
+
+total_employees = len(data)
+total_tasks = int(data["Tasks completed"].sum())
+total_nominations = int(data["Peer nominations"].sum())
+
+recognized_employees = int(
+    (data["Recognitions last 6 months"] > 0).sum()
+)
+
+recognition_coverage = (
+    recognized_employees / total_employees * 100
+    if total_employees > 0
+    else 0
+)
+
 with tab1:
     st.markdown("## 🏠 Recognition at a glance")
     st.caption(
