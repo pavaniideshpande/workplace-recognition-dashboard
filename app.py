@@ -220,6 +220,59 @@ recognition_coverage = (
     else 0
 )
 
+with tab2:
+    st.markdown("## 👥 Employee Explorer")
+    st.caption("Search employees and explore their contribution profiles.")
+
+    search_name = st.text_input(
+        "🔎 Search by employee name",
+        placeholder="Type a name, e.g. Asha",
+        key="employee_search"
+    )
+
+    filtered_data = data[
+        data["Employee"].str.contains(
+            search_name, case=False, na=False
+        )
+    ]
+
+    if filtered_data.empty:
+        st.info("No employees match your search.")
+    else:
+        selected_employee = st.selectbox(
+            "Select an employee",
+            filtered_data["Employee"].tolist(),
+            key="selected_employee"
+        )
+
+        employee = data[
+            data["Employee"] == selected_employee
+        ].iloc[0]
+
+        st.markdown(f"### Profile: {selected_employee}")
+
+        c1, c2, c3 = st.columns(3)
+
+        with c1:
+            st.metric("Tasks completed", int(employee["Tasks completed"]))
+
+        with c2:
+            st.metric("Peer nominations", int(employee["Peer nominations"]))
+
+        with c3:
+            st.metric(
+                "Recognitions",
+                int(employee["Recognitions last 6 months"])
+            )
+
+        st.markdown("#### Contribution notes")
+        st.write(employee["Contribution notes"])
+
+        st.caption(
+            "These are fictional sample records. Metrics alone "
+            "do not establish overall performance or fairness."
+        )
+
 with tab1:
     st.markdown("## 🏠 Recognition at a glance")
     st.caption(
