@@ -3,7 +3,11 @@ import streamlit as st
 from google import genai
 
 st.set_page_config(page_title="AI-Supported Fairness in Workplace Recognition", layout="wide")
-
+st.markdown("""
+<style>
+div[data-testid="stTabs"] button { font-size: 16px; }
+</style>
+""", unsafe_allow_html=True)
 st.markdown("""
 <style>
 .hero-wrap {
