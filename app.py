@@ -134,7 +134,13 @@ div[data-testid="stMetric"] [data-testid="stMetricValue"] {
 """, unsafe_allow_html=True)
 
 st.markdown('<div id="dashboard"></div>', unsafe_allow_html=True)
-
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    "🏠 Overview",
+    "👥 Employee Explorer",
+    "📊 Recognition Insights",
+    "🤖 AI Fairness Lab",
+    "📁 Data & Reports"
+])
 st.caption("Prototype with sample data. AI suggests, the manager decides.")
 
 # ---- API key (paste in sidebar, or set GEMINI_API_KEY in Streamlit secrets when deployed)
