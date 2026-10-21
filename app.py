@@ -204,45 +204,57 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown("### ✨ Recognition at a glance")
-
-data = sample.copy()
-
-total_employees = len(data)
-total_tasks = int(data["Tasks completed"].sum())
-total_nominations = int(data["Peer nominations"].sum())
-recognized_employees = int(
-    (data["Recognitions last 6 months"] > 0).sum()
-)
-recognition_coverage = (
-    recognized_employees / total_employees * 100
-    if total_employees > 0
-    else 0
-)
-
-c1, c2, c3 = st.columns(3)
-
-with c1:
-    st.metric("👥 Employees", total_employees, border=True)
-
-with c2:
-    st.metric("✅ Tasks completed", total_tasks, border=True)
-
-with c3:
-    st.metric("🌟 Peer nominations", total_nominations, border=True)
-
-c4, c5 = st.columns(2)
-
-with c4:
-    st.metric("🏆 Employees recognized", recognized_employees, border=True)
-
-with c5:
-    st.metric(
-        "📈 Recognition coverage",
-        f"{recognition_coverage:.0f}%",
-        border=True,
-        help="Percentage of employees who received at least one recognition in the last six months."
+with tab1:
+    st.markdown("## 🏠 Recognition at a glance")
+    st.caption(
+        "A quick snapshot of employee contributions "
+        "and recognition across the sample data."
     )
+
+    c1, c2, c3 = st.columns(3)
+
+    with c1:
+        st.metric("👥 Employees", total_employees, border=True)
+
+    with c2:
+        st.metric("✅ Tasks completed", total_tasks, border=True)
+
+    with c3:
+        st.metric("🌟 Peer nominations", total_nominations, border=True)
+
+    c4, c5 = st.columns(2)
+
+    with c4:
+        st.metric(
+            "🏆 Employees recognized",
+            recognized_employees,
+            border=True
+        )
+
+    with c5:
+        st.metric(
+            "📈 Recognition coverage",
+            f"{recognition_coverage:.0f}%",
+            border=True,
+            help=(
+                "Percentage of employees who received at least "
+                "one recognition in the last six months."
+            )
+        )
+
+    st.markdown("### What these numbers tell us")
+    st.write(
+        f"Your sample contains {total_employees} employees, "
+        f"{total_tasks} completed tasks, and "
+        f"{total_nominations} peer nominations. "
+        f"{recognized_employees} employees received at least "
+        "one recognition in the last six months."
+    )
+    st.caption(
+        "These figures describe the sample data, not a real workforce."
+    )
+
+
 
 
 
